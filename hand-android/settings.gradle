@@ -1,0 +1,2 @@
+rootProject.name = "aiphone-hand"
+include ":app"

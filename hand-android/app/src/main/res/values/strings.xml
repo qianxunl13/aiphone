@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_desc">开启后，AI 大脑可以读取屏幕内容、替你点按和输入。只连你在 App 里填的服务器；随时可在这里关闭。</string>
+</resources>

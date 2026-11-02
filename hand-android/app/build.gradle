@@ -1,0 +1,17 @@
+apply plugin: "com.android.application"
+
+android {
+  namespace "com.qianxun.aiphone"
+  compileSdk 36
+  defaultConfig {
+    applicationId "com.qianxun.aiphone"
+    minSdk 24
+    targetSdk 34
+    versionCode 1
+    versionName "0.1"
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+}
