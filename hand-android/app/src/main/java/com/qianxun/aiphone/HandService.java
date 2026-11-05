@@ -182,16 +182,16 @@ public class HandService extends AccessibilityService {
 
     private List<AccessibilityNodeInfo> roots() {
         List<AccessibilityNodeInfo> out = new ArrayList<>();
+        java.util.Set<Integer> ids = new java.util.HashSet<>();
         try {
             for (AccessibilityWindowInfo w : getWindows()) {
                 AccessibilityNodeInfo n = w.getRoot();
-                if (n != null) out.add(n);
+                if (n != null) { out.add(n); ids.add(w.getId()); }
             }
         } catch (Exception ignored) { }
-        if (out.isEmpty()) {
-            AccessibilityNodeInfo n = getRootInActiveWindow();
-            if (n != null) out.add(n);
-        }
+        // getWindows() 有时只返回状态栏等系统窗口、漏掉前台 App ⇒ 永远把当前活动窗口也带上
+        AccessibilityNodeInfo active = getRootInActiveWindow();
+        if (active != null && !ids.contains(active.getWindowId())) out.add(active);
         return out;
     }
 
